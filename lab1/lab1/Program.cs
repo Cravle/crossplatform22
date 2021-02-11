@@ -4,6 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+/*Вариант 6
+  Пусть дана строка, состоящая из английских слов(латинский алфавит), отделенных друг от друга
+  одним и более пробелами. Переписать в новую строку слова, в которых гласные буквы чередуются с согласными
+  Пример: "Bolivar can not carry double". Реузльтат: "Bolivar can not".
+ */
 namespace lab1
 {
     class Program
