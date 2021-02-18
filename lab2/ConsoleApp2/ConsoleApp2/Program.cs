@@ -32,7 +32,6 @@ namespace ConsoleApp2
 
             
             int[][] arr = new int[M][];
-            int sum = 0;
             int N = 0;
 
 
@@ -40,7 +39,6 @@ namespace ConsoleApp2
             
             for (int i = 0; i < M; i++)
             {
-                sum = 0;
                 Console.Write($"{i}: ");
                 string str = Console.ReadLine();
                 string[] newStr = str.Split(' ');
@@ -71,12 +69,6 @@ namespace ConsoleApp2
 
             for (int j = 0; j < arr.Length; j++)
             {
-                sum = 0;
-                for (int i = 0; i < arr[j].Length; i++)
-                {
-                    sum += arr[j][i];
-
-                }
                     if (isOdd(arr[j]))
                     {
                         FillNewArr(arr[j]);
