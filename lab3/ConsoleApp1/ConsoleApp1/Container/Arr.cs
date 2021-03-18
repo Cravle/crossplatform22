@@ -84,10 +84,49 @@ namespace ConsoleApp1.Container
             return str;
         }
 
+        public Product this[decimal p]
+        {
+            get
+            {
+                foreach (var el in Container)
+                {
+                    if (el.Price == p)
+                        return el;
+
+                }
+
+                return new Product("Нет результатов с такой ценой", 0);
+            }
+        }
+
+        public Product this[string s]
+        {
+           
+            get
+            {
+                foreach (var el in Container)
+                {
+                    if (el.Name == s)
+                        return el;
+                    
+                }
+
+                return new Product($"no {s}", 0);
+            }
+        }
+
         public Product this[int i]
         {
             set { Container[i] = value; }
-            get { return Container[i]; }
+            get {
+                if (i >= Count || i < 0)
+                {
+                    ArrEx e = new ArrEx();
+                    e.Data.Add("Index", i);
+                    throw e;
+                }
+                    return Container[i]; 
+            }
         }
     }
 }

@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Citrus.cs" />
     <Compile Include="Container\Arr.cs" />
+    <Compile Include="Container\ArrEx.cs" />
     <Compile Include="Fruits.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Program.cs" />

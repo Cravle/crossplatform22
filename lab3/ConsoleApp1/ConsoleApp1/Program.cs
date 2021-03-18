@@ -29,16 +29,27 @@ namespace ConsoleApp1
             arr.Add(new Fruits(1.5M,"Макароны", 7));
             arr.Add(new Citrus(13.6M, 1.8M, "Лимон", 10));
 
-            Console.WriteLine(arr);
+            try
+            {
+                Console.WriteLine(arr[6].ToString());
+            }
+            catch(ArrEx e)
+            {
+                Console.WriteLine($"Элемент с индексом {e.Data["Index"]} не существует");
+            }
+            Console.WriteLine(arr["Молоко"].ToString());
+            Console.WriteLine(arr[3M].ToString());
 
-            arr.Delete(3);
-            Console.WriteLine("------------------------");
-            Console.WriteLine(arr);
+            //Console.WriteLine(arr);
+
+            //arr.Delete(3);
+            //Console.WriteLine("------------------------");
+            //Console.WriteLine(arr);
 
 
-            arr.Sort();
-            Console.WriteLine("------------------------");
-            Console.WriteLine(arr);
+            //arr.Sort();
+            //Console.WriteLine("------------------------");
+            //Console.WriteLine(arr);
             Console.ReadLine();
         }
     }
