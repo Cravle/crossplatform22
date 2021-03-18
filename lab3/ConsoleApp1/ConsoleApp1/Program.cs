@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ConsoleApp1.Container;
 
 namespace ConsoleApp1
 {
@@ -19,14 +20,25 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Product obj1 = new Product("Овсянка");
-            Console.WriteLine(obj1.ToString());
-            Fruits obj2 = new Fruits(10.0M,"Овсянка", 24.5M);
-            Console.WriteLine(obj2.ToString());
+            var arr = new Arr();
 
-            Citrus obj3 = new Citrus();
-            Console.WriteLine(obj3.ToString());
+            arr.Add(new Product("Греча",15));
+            arr.Add(new Product("Молоко",20));
+            arr.Add(new Product("Ананас", 3));
+            arr.Add(new Product("Апельсин", 5));
+            arr.Add(new Fruits(1.5M,"Макароны", 7));
+            arr.Add(new Citrus(13.6M, 1.8M, "Лимон", 10));
 
+            Console.WriteLine(arr);
+
+            arr.Delete(3);
+            Console.WriteLine("------------------------");
+            Console.WriteLine(arr);
+
+
+            arr.Sort();
+            Console.WriteLine("------------------------");
+            Console.WriteLine(arr);
             Console.ReadLine();
         }
     }

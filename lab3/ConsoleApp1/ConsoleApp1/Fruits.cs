@@ -38,7 +38,7 @@ namespace ConsoleApp1
 
         public override string ToString()
         {
-            return $"Name: {Name} Price: {Price} Weight: {Weight}";
+            return $"Name: {Name} Price: {Price}грн Weight: {Weight}кг";
 
         }
     }

@@ -60,7 +60,7 @@ namespace ConsoleApp1
         /// </summary>
         public virtual string ToString()
         {
-            return $"Name: {Name} Price: {Price}"; 
+            return $"Name: {Name} Price: {Price}грн"; 
         }
     }
 }
