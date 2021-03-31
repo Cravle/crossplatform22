@@ -47,6 +47,7 @@
     <Compile Include="Container\Arr.cs" />
     <Compile Include="Container\ArrEx.cs" />
     <Compile Include="Fruits.cs" />
+    <Compile Include="IName.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

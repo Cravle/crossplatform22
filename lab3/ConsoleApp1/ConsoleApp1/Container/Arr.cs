@@ -63,7 +63,7 @@ namespace ConsoleApp1.Container
 
                 for (int j = 0; j < Count; j++)
                 {
-                    if(Container[i].Price > Container[j].Price)
+                    if(Container[i].CompareTo(Container[j]) == -1)
                     {
                         temp = Container[i];
                         Container[i] = Container[j];
@@ -128,5 +128,6 @@ namespace ConsoleApp1.Container
                     return Container[i]; 
             }
         }
+
     }
 }

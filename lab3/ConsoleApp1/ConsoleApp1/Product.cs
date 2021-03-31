@@ -6,8 +6,13 @@ using System.Text;
 
 namespace ConsoleApp1
 {
-    public class Product
+    
+
+    public class Product: IName
     {
+        private string name;
+        private decimal price;
+
         public Product()
         {
             Name = "молоко";
@@ -33,8 +38,7 @@ namespace ConsoleApp1
             Price = 19.50M;
         }
 
-        private string name;
-        private decimal price;
+        
 
 
         public string Name
@@ -55,12 +59,24 @@ namespace ConsoleApp1
             }
         }
 
+       
+
         /// <summary>
         /// virtual
         /// </summary>
-        public virtual string ToString()
+        public override string ToString()
         {
             return $"Name: {Name} Price: {Price}грн"; 
+        }
+
+        public int CompareTo(object obj)
+        {
+            Product p = obj as Product;
+
+            if (p != null)
+                return this.Name.CompareTo(p.name);
+            else
+                throw new Exception("Невозможно сравнить два объекта");
         }
     }
 }
