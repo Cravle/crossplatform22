@@ -20,46 +20,56 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            var arr = new Arr();
+            var arr = new Arr<Product<string>>();
 
-            arr.Add(new Product("Греча",15));
-            arr.Add(new Product("Молоко",20));
-            arr.Add(new Product("Ананас", 3));
-            arr.Add(new Product("Апельсин", 5));
-            arr.Add(new Fruits(1.5M,"Макароны", 7));
-            arr.Add(new Citrus(13.6M, 1.8M, "Лимон", 10));
+            arr.Add(new Product<string>("Греча",15));
+            arr.Add(new Product<string>("Молоко",20));
+            arr.Add(new Product<string>("Ананас", 3));
+            arr.Add(new Product<string>("Апельсин", 5));
+            arr.Add(new Fruits<string>(1.5M,"Макароны", 7));
+            arr.Add(new Citrus<string>(13.6M, 1.8M, "Лимон", 10));
             Console.WriteLine(arr);
 
             Console.WriteLine("------------------------------------");
 
-            //try
-            //{
-            //    Console.WriteLine(arr[6].ToString());
-            //}
-            //catch(ArrEx e)
-            //{
-            //    Console.WriteLine($"Элемент с индексом {e.Data["Index"]} не существует");
-            //}
-            //Console.WriteLine(arr["Молоко"].ToString());
-            //Console.WriteLine(arr[3M].ToString());
 
-            //Console.WriteLine(arr[0].Name);
-
-            arr.Sort();
-
-            Console.WriteLine(arr);
-
-            //Console.WriteLine(arr);
-
-            //arr.Delete(3);
-            //Console.WriteLine("------------------------");
-            //Console.WriteLine(arr);
+            var list = new DplxList<Product<string>>();
+            list.Add(new Product<string>("Греча", 15));
+            list.Add(new Product<string>("Молоко", 20));
+            list.Add(new Product<string>("Ананас", 3));
+            list.Add(new Product<string>("Апельсин", 5));
+            list.Add(new Fruits<string>(1.5M, "Макароны", 7));
+            list.Add(new Citrus<string>(13.6M, 1.8M, "Лимон", 10));
 
 
-            //arr.Sort();
-            //Console.WriteLine("------------------------");
-            //Console.WriteLine(arr);
+            list.Print();
+
+
             Console.ReadLine();
         }
     }
 }
+
+//try
+//{
+//    Console.WriteLine(arr[6].ToString());
+//}
+//catch(ArrEx e)
+//{
+//    Console.WriteLine($"Элемент с индексом {e.Data["Index"]} не существует");
+//}
+//Console.WriteLine(arr["Молоко"].ToString());
+//Console.WriteLine(arr[3M].ToString());
+
+//Console.WriteLine(arr[0].Name);
+
+//Console.WriteLine(arr);
+
+//arr.Delete(3);
+//Console.WriteLine("------------------------");
+//Console.WriteLine(arr);
+
+
+//arr.Sort();
+//Console.WriteLine("------------------------");
+//Console.WriteLine(arr);

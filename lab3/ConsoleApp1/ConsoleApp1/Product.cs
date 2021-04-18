@@ -8,40 +8,12 @@ namespace ConsoleApp1
 {
     
 
-    public class Product: IName
+    public class Product<T>: IName<T>
+        where T: IComparable, IComparable<T>
     {
-        private string name;
+        private T name;
         private decimal price;
-
-        public Product()
-        {
-            Name = "молоко";
-            Price = 19.50M;
-        }
-
-
-        public Product(string name, decimal price)
-        {
-            Name = name;
-            Price = price;
-        }
-
-            public Product(decimal price)
-        {
-            Name = "молоко";
-            Price = price;
-        }
-
-        public Product(string name)
-        {
-            Name = name;
-            Price = 19.50M;
-        }
-
-        
-
-
-        public string Name
+        public T Name
         {
             get => this.name;
             set
@@ -59,7 +31,11 @@ namespace ConsoleApp1
             }
         }
 
-       
+        public Product(T name, decimal price)
+        {
+            Name = name;
+            Price = price;
+        }       
 
         /// <summary>
         /// virtual
@@ -71,10 +47,20 @@ namespace ConsoleApp1
 
         public int CompareTo(object obj)
         {
-            Product p = obj as Product;
+            Product<T> p = obj as Product<T>;
 
             if (p != null)
                 return this.Name.CompareTo(p.name);
+            else
+                throw new Exception("Невозможно сравнить два объекта");
+        }
+
+        public int CompareTo(T other)
+        {
+            Product<T> p = other as Product<T>;
+
+            if (p != null)
+                return this.Name.CompareTo(other);
             else
                 throw new Exception("Невозможно сравнить два объекта");
         }

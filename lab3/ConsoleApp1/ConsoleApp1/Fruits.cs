@@ -5,23 +5,12 @@ using System.Text;
 
 namespace ConsoleApp1
 {
-    public class Fruits: Product
+    public class Fruits<T>: Product<T>
+        where T : IComparable, IComparable<T>
     {
         
         private decimal weight;
-
-        public Fruits()
-        {
-            Weight = 1.5M;
-        }
-
-        public Fruits(string name = "Яблоко", decimal price = 19.50M): base(name, price)
-        {
-            
-            Weight = 1.0M;
-        }
-
-        public Fruits(decimal weight, string name = "Яблоко", decimal price = 19.50M) : base(name, price)
+        public Fruits(decimal weight, T name, decimal price) : base(name, price)
         {
 
             Weight = weight;
@@ -39,7 +28,7 @@ namespace ConsoleApp1
         public override string ToString()
         {
             return $"Name: {Name} Price: {Price}грн Weight: {Weight}кг";
-
+            
         }
     }
 }

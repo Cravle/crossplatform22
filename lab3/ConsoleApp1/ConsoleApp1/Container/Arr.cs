@@ -6,18 +6,19 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.Container
 {
-    public class Arr
+    public class Arr<T>
+        where T: IComparable
     {
-        private Product[] Container;
+        private T[] Container;
         public int Count {get;set;}
         private int Size = 5;
         public Arr()
         {
             Count = 0;
-            Container = new Product[Size];
+            Container = new T[Size];
         }
 
-        public void Add(Product P)
+        public void Add(T P)
         {
             if (Count < Size)
             {
@@ -26,7 +27,7 @@ namespace ConsoleApp1.Container
             }
             else
             {
-                Product[] temp = new Product[++Count];
+                T[] temp = new T[++Count];
                 for(int i = 0; i < Count - 1; i++)
                 {
                     temp[i] = Container[i];
@@ -40,7 +41,7 @@ namespace ConsoleApp1.Container
 
         public void Delete(int index)
         {
-            Product[] temp = new Product[--Count];
+            T[] temp = new T[--Count];
             int i = 0;
             int j = 0;
             while(i <= Count)
@@ -57,11 +58,11 @@ namespace ConsoleApp1.Container
 
         public void Sort()
         {
-            Product temp;
-            for(int i = 0; i < Count - 1; i++)
+            T temp;
+            for(int i = 0; i < Count; i++)
             {
 
-                for (int j = 0; j < Count; j++)
+                for (int j = 0; j < Count-1; j++)
                 {
                     if(Container[i].CompareTo(Container[j]) == -1)
                     {
@@ -84,38 +85,42 @@ namespace ConsoleApp1.Container
             return str;
         }
 
-        public Product this[decimal p]
-        {
-            get
-            {
-                foreach (var el in Container)
-                {
-                    if (el.Price == p)
-                        return el;
-
-                }
-
-                return new Product("Нет результатов с такой ценой", 0);
-            }
-        }
-
-        public Product this[string s]
-        {
-           
-            get
-            {
-                foreach (var el in Container)
-                {
-                    if (el.Name == s)
-                        return el;
+        //public T this[decimal p]
+        //{
+        //    get
+        //    {
+        //        foreach (T el  in Container )                    
+        //        {
                     
-                }
+        //            if (el.Price == p)
+        //                return el;
 
-                return new Product($"no {s}", 0);
-            }
-        }
+        //        }
+        //        throw new ArgumentException("Не найдено");
 
-        public Product this[int i]
+                
+        //    }
+        //}
+
+        //public T this[string s]
+        //{
+           
+        //    get
+        //    {
+        //        foreach (var el in Container)
+        //        {
+                    
+        //            if (el.Name == s)
+        //                return el;
+                    
+        //        }
+
+        //        throw new ArgumentException("Не найдено");
+
+        //    }
+        //}
+
+        public T this[int i]
         {
             set { Container[i] = value; }
             get {
