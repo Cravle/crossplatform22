@@ -35,9 +35,7 @@ namespace ConsoleApp1
         {
             Name = name;
             Price = price;
-        }      
-        
-
+        }       
 
         /// <summary>
         /// virtual

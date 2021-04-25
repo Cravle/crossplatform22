@@ -45,11 +45,9 @@
   <ItemGroup>
     <Compile Include="Citrus.cs" />
     <Compile Include="Container\Arr.cs" />
-    <Compile Include="Container\ArrEnum.cs" />
     <Compile Include="Container\ArrEx.cs" />
     <Compile Include="Container\DplxItem.cs" />
     <Compile Include="Container\DplxList.cs" />
-    <Compile Include="Container\DplxListEnum.cs" />
     <Compile Include="Fruits.cs" />
     <Compile Include="IName.cs" />
     <Compile Include="Product.cs" />

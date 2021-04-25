@@ -28,12 +28,12 @@ namespace ConsoleApp1
             arr.Add(new Product<string>("Апельсин", 5));
             arr.Add(new Fruits<string>(1.5M,"Макароны", 7));
             arr.Add(new Citrus<string>(13.6M, 1.8M, "Лимон", 10));
-            //Console.WriteLine(arr);
+            Console.WriteLine(arr);
+            Console.WriteLine("------------------------------------");
 
-            foreach(var el in arr)
-            {
-                Console.WriteLine(el);
-            }
+            arr.Sort();
+
+            Console.WriteLine(arr);
 
             Console.WriteLine("------------------------------------");
 
@@ -47,11 +47,8 @@ namespace ConsoleApp1
             list.Add(new Citrus<string>(13.6M, 1.8M, "Лимон", 10));
 
 
-            //list.Print();
-            foreach (var el in list)
-            {
-                Console.WriteLine(el);
-            }
+            list.Print();
+
 
             Console.ReadLine();
         }

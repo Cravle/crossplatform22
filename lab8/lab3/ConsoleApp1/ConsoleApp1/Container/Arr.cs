@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.Container
 {
-    public class Arr<T> : IEnumerable
-        where T : IComparable
+    public class Arr<T>
+        where T: IComparable
     {
         private T[] Container;
-        public int Count { get; set; }
+        public int Count {get;set;}
         private int Size = 5;
         public Arr()
         {
@@ -29,7 +28,7 @@ namespace ConsoleApp1.Container
             else
             {
                 T[] temp = new T[++Count];
-                for (int i = 0; i < Count - 1; i++)
+                for(int i = 0; i < Count - 1; i++)
                 {
                     temp[i] = Container[i];
                 }
@@ -45,9 +44,9 @@ namespace ConsoleApp1.Container
             T[] temp = new T[--Count];
             int i = 0;
             int j = 0;
-            while (i <= Count)
+            while(i <= Count)
             {
-                if (i != index)
+                if(i != index)
                 {
                     temp[j] = Container[i];
                     j++;
@@ -60,12 +59,12 @@ namespace ConsoleApp1.Container
         public void Sort()
         {
             T temp;
-            for (int i = 0; i < Count; i++)
+            for(int i = 0; i < Count; i++)
             {
 
-                for (int j = 0; j < Count - 1; j++)
+                for (int j = 0; j < Count-1; j++)
                 {
-                    if (Container[i].CompareTo(Container[j]) == -1)
+                    if(Container[i].CompareTo(Container[j]) == -1)
                     {
                         temp = Container[i];
                         Container[i] = Container[j];
@@ -75,84 +74,65 @@ namespace ConsoleApp1.Container
             }
         }
 
+        public override string ToString()
+        {
+            string str = "";
+
+            foreach(var el in Container)
+            {
+               str += $"{el.ToString()} \n";
+            }
+            return str;
+        }
+
+        //public T this[decimal p]
+        //{
+        //    get
+        //    {
+        //        foreach (T el  in Container )                    
+        //        {
+                    
+        //            if (el.Price == p)
+        //                return el;
+
+        //        }
+        //        throw new ArgumentException("Не найдено");
+
+                
+        //    }
+        //}
+
+        //public T this[string s]
+        //{
+           
+        //    get
+        //    {
+        //        foreach (var el in Container)
+        //        {
+                    
+        //            if (el.Name == s)
+        //                return el;
+                    
+        //        }
+
+        //        throw new ArgumentException("Не найдено");
+
+        //    }
+        //}
 
         public T this[int i]
         {
             set { Container[i] = value; }
-            get
-            {
+            get {
                 if (i >= Count || i < 0)
                 {
                     ArrEx e = new ArrEx();
                     e.Data.Add("Index", i);
                     throw e;
                 }
-                return Container[i];
+                    return Container[i]; 
             }
         }
-
-        IEnumerator IEnumerable.GetEnumerator ()
-        {
-            return (IEnumerator)GetEnumerator();
-        }
-
-        public IEnumerator<T>GetEnumerator()
-        {
-            return new ArrEnum<T>(this);
-        }
-
-        
-
-
-
-        public override string ToString()
-        {
-            string str = "";
-
-            foreach (var el in Container)
-            {
-                str += $"{el.ToString()} \n";
-            }
-            return str;
-        }
-
 
     }
 }
-
-
-
-//public T this[decimal p]
-//{
-//    get
-//    {
-//        foreach (T el  in Container )                    
-//        {
-
-//            if (el.Price == p)
-//                return el;
-
-//        }
-//        throw new ArgumentException("Не найдено");
-
-
-//    }
-//}
-
-//public T this[string s]
-//{
-
-//    get
-//    {
-//        foreach (var el in Container)
-//        {
-
-//            if (el.Name == s)
-//                return el;
-
-//        }
-
-//        throw new ArgumentException("Не найдено");
-
-//    }
-//}

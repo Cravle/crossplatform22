@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.Container
 {
-    public class DplxList<T> : IEnumerable
-        where T : IComparable
+    public class DplxList<T>
     {
         public DplxItem<T> Head { get; set; }
         public DplxItem<T> Tail { get; set; }
@@ -86,38 +84,6 @@ namespace ConsoleApp1.Container
             {
                 Console.WriteLine(current + " ");
                 current = current.Next;
-            }
-        }
-
-
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return (IEnumerator)GetEnumerator();
-        }
-
-        public IEnumerator<T> GetEnumerator()
-        {
-            return new DplxListEnum<T>(this);
-        }
-
-        public T this[int i]
-        {
-            
-            get
-            {
-                
-                    DplxItem<T> current = Head;
-                    int counter = 0;
-                    while (current != null)
-                    {
-                        if (counter == i)
-                            return current.Data;
-                        current = current.Next;
-                        counter++;
-                    }
-                return current.Data;
-                
             }
         }
 
