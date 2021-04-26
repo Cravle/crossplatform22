@@ -30,25 +30,13 @@ namespace ConsoleApp1
             arr.Add(new Citrus<string>(13.6M, 1.8M, "Лимон", 10));
             //Console.WriteLine(arr);
 
-            foreach(var el in arr.InverseEnumerator())
+            foreach(var el in arr)
             {
                 Console.WriteLine(el);
             }
 
             Console.WriteLine("------------------------------------");
 
-            foreach (var el in arr.SubstringEnum("Мол"))
-            {
-                Console.WriteLine(el);
-            }
-
-            Console.WriteLine("------------------------------------");
-            foreach (var el in arr.SortedEnum())
-            {
-                Console.WriteLine(el);
-            }
-
-            Console.WriteLine("------------------------------------");
 
             var list = new DplxList<Product<string>>();
             list.Add(new Product<string>("Греча", 15));

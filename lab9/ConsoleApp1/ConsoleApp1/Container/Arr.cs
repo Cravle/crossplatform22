@@ -75,6 +75,7 @@ namespace ConsoleApp1.Container
             }
         }
 
+
         public T this[int i]
         {
             set { Container[i] = value; }
@@ -100,46 +101,7 @@ namespace ConsoleApp1.Container
             return new ArrEnum<T>(this);
         }
 
-        public IEnumerable<T> InverseEnumerator()
-        {
-            for (int i = Count - 1; i >= 0; i--)
-                yield return this[i];
-        }
-        public IEnumerable<T> SubstringEnum(string str)
-        {
-            for (int i = 0; i < Count -1 ; i++)
-            {
-                if (this[i].ToString().Contains(str))
-                {
-                    yield return this[i];
-                }
-            }
-        }
-
-        public IEnumerable<T> SortedEnum()
-        {
-            T[] tempArr = (T[])Container.Clone(); 
-            T temp;
-            for (int i = 0; i < Count; i++)
-            {
-
-                for (int j = 0; j < Count - 1; j++)
-                {
-                    if (tempArr[i].CompareTo(tempArr[j]) == -1)
-                    {
-                        temp = tempArr[i];
-                        tempArr[i] = tempArr[j];
-                        tempArr[j] = temp;
-                    }               
-
-                }
-            }
-
-            for (int i = 0; i < Count; i++)
-            {
-                yield return tempArr[i];
-            }
-        }
+        
 
 
 
