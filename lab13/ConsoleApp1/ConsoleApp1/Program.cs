@@ -62,26 +62,30 @@ namespace ConsoleApp1
         {
             var arr = new Arr<Product<string>>();
 
+            arr.CountTotal += Arr_CountTotal; ;
             arr.Add(new Product<string>("Греча",15));
             arr.Add(new Product<string>("Молоко",20));
             arr.Add(new Product<string>("Ананас", 3));
             arr.Add(new Product<string>("Апельсин", 5));
             arr.Add(new Product<string>("Лимон", 40));
+            arr.Add(new Product<string>("Мандарин", 20));
+            arr.Add(new Product<string>("Картофель", 20));
             Console.WriteLine(arr);
 
-            SaveBinary(arr);
-
-            arr.Add(new Citrus<string>(13.6M, 1.8M, "Лимон", 10));
-            Console.WriteLine("------------------------------------");
-            Console.WriteLine(arr);
-            Console.WriteLine("------------------------------------");
-
-            arr = LoadBinary();
 
 
-            Console.WriteLine(arr);
+
+            arr.Delete(0);
+
+            arr[0] = new Product<string>("Киви", 115);
+
 
             Console.ReadLine();
+        }
+
+        private static void Arr_CountTotal(object sender, EventArgs e)
+        {
+            Console.WriteLine($"Общая сумма: {((Arr<Product<string>>)sender).Total}");
         }
     }
 }
@@ -145,3 +149,24 @@ namespace ConsoleApp1
 //{
 //    Console.WriteLine(el);
 //}
+
+
+
+//SaveBinary(arr);
+
+//arr.Add(new Citrus<string>(13.6M, 1.8M, "Лимон", 10));
+//Console.WriteLine("------------------------------------");
+//Console.WriteLine(arr);
+//Console.WriteLine("------------------------------------");
+
+//arr = LoadBinary();
+
+//arr.Sort((x, y) => x.CompareTo(y));
+//Console.WriteLine("Результат делегата для Sort");
+//Console.WriteLine(arr);
+
+//Console.WriteLine("Результат делегата для Find, находит первый товар с названием указанным вторым параметром в функции");
+//arr.Find((x, y) => x.Name.CompareTo(y), "Лимон");
+
+//Console.WriteLine("Результат делегата для FindAll, находит первый товар с ценной указанной вторым параметром в функции");
+//arr.FindAll((x, y) => x.Price.CompareTo(y), 20);

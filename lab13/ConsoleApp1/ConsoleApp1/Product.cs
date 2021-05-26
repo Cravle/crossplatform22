@@ -11,6 +11,8 @@ namespace ConsoleApp1
     public class Product<T>: IName<T>
         where T: IComparable, IComparable<T>
     {
+
+
         private T name;
         private decimal price;
         public T Name
@@ -31,13 +33,12 @@ namespace ConsoleApp1
             }
         }
 
+
         public Product(T name, decimal price)
         {
             Name = name;
             Price = price;
         }      
-        
-
 
         /// <summary>
         /// virtual
@@ -66,5 +67,7 @@ namespace ConsoleApp1
             else
                 throw new Exception("Невозможно сравнить два объекта");
         }
+
+
     }
 }

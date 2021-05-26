@@ -67,19 +67,21 @@ namespace ConsoleApp1
             arr.Add(new Product<string>("Ананас", 3));
             arr.Add(new Product<string>("Апельсин", 5));
             arr.Add(new Product<string>("Лимон", 40));
+            arr.Add(new Product<string>("Мандарин", 20));
+            arr.Add(new Product<string>("Картофель", 20));
             Console.WriteLine(arr);
 
-            SaveBinary(arr);
-
-            arr.Add(new Citrus<string>(13.6M, 1.8M, "Лимон", 10));
-            Console.WriteLine("------------------------------------");
+            arr.Sort((x, y) => x.CompareTo(y));
+            
+            Console.WriteLine("Результат делегата для Sort");
             Console.WriteLine(arr);
-            Console.WriteLine("------------------------------------");
 
-            arr = LoadBinary();
+            Console.WriteLine("Результат делегата для Find, находит первый товар с названием указанным вторым параметром в функции");
+            arr.Find((x, y) => x.Name.CompareTo(y), "Лимон");
 
+            Console.WriteLine("Результат делегата для FindAll, находит первый товар с ценной указанной вторым параметром в функции");
+            arr.FindAll((x, y) => x.Price.CompareTo(y), 20);
 
-            Console.WriteLine(arr);
 
             Console.ReadLine();
         }
@@ -145,3 +147,14 @@ namespace ConsoleApp1
 //{
 //    Console.WriteLine(el);
 //}
+
+
+
+//SaveBinary(arr);
+
+//arr.Add(new Citrus<string>(13.6M, 1.8M, "Лимон", 10));
+//Console.WriteLine("------------------------------------");
+//Console.WriteLine(arr);
+//Console.WriteLine("------------------------------------");
+
+//arr = LoadBinary();
